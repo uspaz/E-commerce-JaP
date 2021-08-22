@@ -79,7 +79,7 @@ form{
   border: 1px solid #000;
   border-radius: 15px;
 }
-@media screen and (max-width: 1050px){
+@media screen and (max-width: 1075px){
   .fimg img{
     display: none;
   }
