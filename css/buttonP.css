@@ -1,0 +1,40 @@
+.simple{
+  border: none;
+  outline: none;
+  background: #fff;
+  font-size: 18px;
+  color: #000;
+  border-radius: 7px;
+  margin: 0px 5px 0px 5px;
+}
+.simple:hover{
+  background: #eee;
+}
+.simple:focus{
+  border: none;
+  outline: none;
+}
+.input{
+  border: 1px solid #888;
+  border-radius: 8px;
+  padding: 3px;
+  outline: none;
+  margin: 0px 5px 0px 5px;
+  width: 10%;
+}
+.input:focus{
+  border: 1px solid #000;
+}
+.search{
+  border: 1px solid #aaa;
+  outline: none;
+  margin: 0px 5px 0px 0px;
+  border-radius: 20px;
+  padding: 5px;
+}
+.search::placeholder{
+  color: #000;
+}
+.search:focus{
+  border: 1px solid #000;
+}

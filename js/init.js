@@ -39,8 +39,23 @@ var getJSONData = function(url){
         return result;
     });
 }
+function Persona(){ //Obtiene los datos del input para guardarlos en el localStorage
+  let perfil = { dato: document.getElementById('user').value};
+  let perfil_json = JSON.stringify(perfil);
+  localStorage.setItem("user", perfil_json);
+}
+function recuperar(){ //
+  if (localStorage.getItem("user")) { //Pasa los datos que estan en el localStorage a string y los muestra
+    perfil_json = localStorage.getItem("user");
+    perfil = JSON.parse(perfil_json);
+    document.getElementById("perfil").innerHTML = `User: ${perfil.dato}`;
+  } else {
+    document.getElementById("perfil").innerHTML = `No hay datos almacenados`;
+  }
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", ()=>{
+  recuperar();
 });
