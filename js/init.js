@@ -45,7 +45,7 @@ function Persona(){ //Obtiene los datos del input para guardarlos en el localSto
   localStorage.setItem("user", perfil_json);
 }
 function recuperar(){ //
-  if (localStorage.getItem("user")) { //Pasa los datos que estan en el localStorage a string y los muestra
+  if (localStorage.getItem("user")) { //Pasa los datos que estan en el localStorage a string y los muestra 
     perfil_json = localStorage.getItem("user");
     perfil = JSON.parse(perfil_json);
     document.getElementById("perfil").innerHTML = `User: ${perfil.dato}`;

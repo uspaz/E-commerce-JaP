@@ -85,10 +85,12 @@ function carsHtml(product) { //Creamos el html que vamos agregar en la página
            </div>
          <div class="col">
              <div class="d-flex w-100 justify-content-between">
-                 <h4 class="mb-1"> ${product.name}  </h4>
-                 <h5 class="text-muted"> ${product.soldCount} ventas</h5>
-               </div>
-             <p class="mb-1">${product.description} </p>
+                <h4 class="mb-1"> ${product.name}  </h4>
+                <h6 class="text-muted"> ${product.soldCount} ventas realizadas</h6>
+              </div>
+              <div>
+                <h5 class="mb-1">${product.description} </h5>
+              </div>
              <div class="float-right"><br><br>
                <h5 class="text-muted"> ${product.currency}   ${product.cost}   </h5>
              </div>

@@ -38,3 +38,9 @@
 .search:focus{
   border: 1px solid #000;
 }
+.a{
+  text-decoration-line: none;
+}
+.a:hover{
+  text-decoration-line: none;
+}

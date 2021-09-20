@@ -11,7 +11,7 @@ function verificar(){ //Verificar si se escribe algo en los input en el login
     });
   }else {
     location.href ="inicio.html"; //Envia a la pagina principal
-    Persona();
+    Persona(); 
   }
 }
 //Función que se ejecuta una vez que se haya lanzado el evento de

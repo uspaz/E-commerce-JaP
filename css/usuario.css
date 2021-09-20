@@ -1,3 +1,45 @@
 .ajuste{
   color: #fff;
 }
+.puntuacion{
+  display: inline-block;
+}
+.r{
+  font-size: 28px;
+  color: red;
+}
+.n{
+  font-size: 28px;
+  color: orange;
+}
+.a{
+  font-size: 28px;
+  color: #F9DB5F;
+}
+.s{
+  font-size: 28px;
+  color: skyblue;
+}
+.v{
+  font-size: 28px;
+  color: green;
+
+}
+.far{
+  font-size: 28px;
+}
+.desaparecer{
+  display: none;
+  overflow: hidden;
+}
+.puntuacion label {
+float: right;
+color: #c1b8b8;
+font-size: 30px;
+overflow: hidden;
+}
+.puntuacion label:hover,
+.puntuacion label:hover ~ label,
+.puntuacion input:checked ~ label {
+  color: orange;
+}
