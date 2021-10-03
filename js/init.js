@@ -45,12 +45,12 @@ function Persona(){ //Obtiene los datos del input para guardarlos en el localSto
   localStorage.setItem("user", perfil_json);
 }
 function recuperar(){ //
-  if (localStorage.getItem("user")) { //Pasa los datos que estan en el localStorage a string y los muestra 
+  if (localStorage.getItem("user")) { //Pasa los datos que estan en el localStorage a string y los muestra
     perfil_json = localStorage.getItem("user");
     perfil = JSON.parse(perfil_json);
-    document.getElementById("perfil").innerHTML = `User: ${perfil.dato}`;
+    document.getElementById("dropdownMenuButton1").innerHTML = `${perfil.dato}`;
   } else {
-    document.getElementById("perfil").innerHTML = `No hay datos almacenados`;
+    document.getElementById("dropdownMenuButton1").innerHTML = `No hay datos almacenados`;
   }
 }
 //Función que se ejecuta una vez que se haya lanzado el evento de

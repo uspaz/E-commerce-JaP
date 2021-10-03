@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", async function (e) { // Utilizo la
   info = response.data;
   showFeatures(info);
   showImages(info);
+  showRelatedProducts(info);
 
   res = await getInfoC();
   comments = res.data;
@@ -57,28 +58,47 @@ function showImages(producto){ //Mostrar las imagenes del auto
 
 function agregarImagenes(producto){ //Codigo de como se van a mostrar las imagenes
   return `
+  <div class="carousel-item active">
+      <img src="${producto.images[1]}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="${producto.images[2]}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="${producto.images[3]}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="${producto.images[4]}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>`;
+}
+function showRelatedProducts(producto){ //Muestro los productos relacionados
+  let htmlContentToAppend = "";
+  htmlContentToAppend += productosRelacionados(producto)
+  document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
+}
+function productosRelacionados(producto){ //Codigo de como sevan a mostrar los productos relacionados
+  return `
   <div class="row">
     <div class="col-lg-3 col-md-4 col-6">
       <div class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src=" ${producto.images[4]}" alt="">
+        <img class="img-fluid img-thumbnail" src="img/prod2.jpg"  alt="">
       </div>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <div class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src=" ${producto.images[3]}" alt="">
+        <img class="img-fluid img-thumbnail" src="img/prod3.jpg"  alt="">
       </div>
     </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <div class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src=" ${producto.images[2]}" alt="">
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <div class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src=" ${producto.images[1]}" alt="">
-      </div>
-    </div>
-  </div>`;
+  </div>`
 }
 
 function showComments(producto){ //Mostrar los comentarios del auto con su respectiva calificación
@@ -131,7 +151,7 @@ function verificarComment () {//Coloca alertas si el nombre y apellido no estan 
       Swal.fire({
       position: 'center',
       icon: 'warning',
-      title: 'El Nombre y Apellido deben ir separados por un guion bajo',
+      title: 'Escriba el nombre y apellido (separados por un "_")',
       showConfirmButton: true,
       })
   }else {

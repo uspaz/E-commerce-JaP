@@ -43,3 +43,36 @@ overflow: hidden;
 .puntuacion input:checked ~ label {
   color: orange;
 }
+
+.dropdown-menu{
+  width: 225px;
+}
+.desplegable{
+  padding: 10px;
+}
+.desplegable:hover{
+  background: #48d
+}
+.cerrar{
+  outline: none;
+  border: none;
+  width: 100%;
+  margin-top: 5px;
+  padding: 7.5px;
+  text-align: left;
+  padding-left: 15px;
+}
+.cerrar:hover{
+  outline: none;
+  border: none;
+  background: #48d
+}
+.fa-sign-out-alt{
+  color: #000;
+  font-size: 20px;
+  margin-top: 5px;
+  padding-right: 5px;
+}
+.epa{
+  color: #48d;
+}
