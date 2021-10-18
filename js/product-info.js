@@ -145,13 +145,12 @@ function placeEmojis(n){//Agrega los emoji como metodo de calificación
 }
 
 function verificarComment () {//Coloca alertas si el nombre y apellido no estan separados por un guion bajo o si el campo no fue completado, también al realizarse el comentario
-  let nombre  = document.getElementById("nameComment").value;
-  let guion = "_"
-  if (nombre == "" || !nombre.includes(guion)) {
+  let comment  = document.getElementById("textComment").value;
+  if (comment == "") {
       Swal.fire({
       position: 'center',
       icon: 'warning',
-      title: 'Escriba el nombre y apellido (separados por un "_")',
+      title: 'Debe agregar un comentario',
       showConfirmButton: true,
       })
   }else {
