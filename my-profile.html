@@ -12,7 +12,7 @@
   <script src="https://kit.fontawesome.com/7db1b9fcb6.js" crossorigin="anonymous"></script>
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -33,6 +33,7 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
   <link rel="stylesheet" href="css/usuario.css">
+  <link rel="stylesheet" href="css/profile.css">
 </head>
 
 <body>
@@ -52,13 +53,33 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div class="grilla" >
+      <div class="perfil-img">
+        <img src="" alt="" id="perfil-img" class="p-img">
+      </div>
+      <div class="cargar" >
+        <div class="cargar-img" id="photo">
+          <label class="text-img" >Agrega tu foto aquí.<input type="file" name="" onchange="vistaPrevia();" id="add-photo"></input></label>
+        </div>
+      </div>
+      <div class="predeterminado">
+        <img src="img/avatar1.png" id="av1" class="av1" alt="">
+        <img src="img/avatar2.png" id="av2" class="av1"alt="">
+        <img src="img/avatar3.png" id="av3" class="av1" alt="">
+        <img src="img/avatar4.png" id="av4" class="av1" alt="">
+      </div>
+      <div class="perfil">
+        <label>Nombre:<br> <input type="text" class="dato" id="camp1" disabled="true"></label>
+        <label>Apellidos:<br> <input type="text" class="dato" id="camp2" disabled="true"></label>
+        <label>Contraseña:<br> <input type="password" class="dato" id="camp3" disabled="true"></label>
+        <label>Edad:<br> <input type="number" min="1" class="edad dato" style="font-family: 'Mukta', sans-serif;" id="camp4" disabled="true"></label>
+        <label>Correo:<br> <input type="email" class="correo dato" id="camp5" disabled="true"></label>
+        <label>Telefono:<br> <input type="text" class="dato" style="font-family: 'Mukta', sans-serif;" id="camp6" disabled="true"></label>
+      </div>
+      <div class="p-button">
+        <button type="button" name="button" class="edit-button" onclick="editar();">Editar perfil</button>
+        <button type="button" name="button" class="save-button" onclick="savePerfil();">Guardas cambios</button>
+      </div>
   </div>
   <footer class="text-muted bg-light">
     <div class="container">
@@ -66,12 +87,6 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -88,6 +103,7 @@
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
   <script src="js/google.js" charset="utf-8"></script>
   <script src="js/desconectar.js" charset="utf-8"></script>
+  <script src="js/md5.js" charset="utf-8"></script>
 </body>
 
 </html>

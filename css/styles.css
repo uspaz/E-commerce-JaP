@@ -139,3 +139,11 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+@media (max-width: 1300px){
+  body{
+    font-size: 0.87em;
+  }
+  .dropdown-menu {
+    width: 3.12em; /* 50/16 */
+  }
+}

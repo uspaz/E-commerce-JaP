@@ -41,6 +41,7 @@ var getJSONData = function(url){
 }
 function Persona(){ //Obtiene los datos del input para guardarlos en el localStorage
   let perfil = { dato: document.getElementById('user').value};
+  perfil.imagen = "img/userIcon.png";
   let perfil_json = JSON.stringify(perfil);
   localStorage.setItem("user", perfil_json);
 }
@@ -48,7 +49,7 @@ function recuperar(){ //
   if (localStorage.getItem("user")) { //Pasa los datos que estan en el localStorage a string y los muestra
     perfil_json = localStorage.getItem("user");
     perfil = JSON.parse(perfil_json);
-    document.getElementById("dropdownMenuButton1").innerHTML = `${perfil.dato}`;
+    document.getElementById("dropdownMenuButton1").innerHTML = `<img src=${perfil.imagen} height="29px;" width="29px;" style="border-radius: 100px; margin: auto;"> ${perfil.dato}`;
   } else {
     document.getElementById("dropdownMenuButton1").innerHTML = `No hay datos almacenados`;
   }

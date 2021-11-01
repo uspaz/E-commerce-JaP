@@ -78,25 +78,23 @@ function showProductsList(array){ //Funcion para mostrar los productos
 
 function carsHtml(product) { //Creamos el html que vamos agregar en la página
   return `
-  <div class="list-group-item list-group-item-action ">
-     <div class="row">
-         <div class="col-3">
-             <img src=" ${product.imgSrc} " alt=" ${product.description}" class="img-thumbnail">
-           </div>
-         <div class="col">
-             <div class="d-flex w-100 justify-content-between">
-                <h4 class="mb-1"> ${product.name}  </h4>
-                <h6 class="text-muted"> ${product.soldCount} ventas realizadas</h6>
-              </div>
-              <div>
-                <h5 class="mb-1">${product.description} </h5>
-              </div>
-             <div class="float-right"><br><br>
-               <h5 class="text-muted"> ${product.currency}   ${product.cost}   </h5>
-             </div>
-           </div>
-       </div>
-   </div><br><br>
+  <div class="col-md-4">
+    <a class="card mb-4 shadow-sm custom-card" href="product-info.html">
+      <div class="bd-placeholder-img card-img-top">
+        <img src=" ${product.imgSrc} " alt=" ${product.description}" class="img-thumbnail">
+      </div>
+      <div class="col">
+        <div class="">
+          <h4 class="m-3"> ${product.name} </h4>
+          <div>
+            <p class="text-muted" style="font-size: 18px;">${product.description}</p>
+            <small class="text-muted" style="font-size: 16px">  ${product.soldCount} ventas realizadas</small>
+          </div>
+        </div>
+        <h5 class="text-muted text float-right"> ${product.currency}${product.cost}</h5>
+      </div>
+    </a>
+   </div>
  `;
 }
 

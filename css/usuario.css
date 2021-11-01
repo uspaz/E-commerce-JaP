@@ -45,10 +45,11 @@ overflow: hidden;
 }
 
 .dropdown-menu{
-  width: 225px;
+  width: 12.06em; /* 225/16 */
 }
 .desplegable{
   padding: 10px;
+
 }
 .desplegable:hover{
   background: #48d

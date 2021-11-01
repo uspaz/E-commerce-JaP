@@ -15,6 +15,7 @@
     <link href="css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="css/buttonP.css">
     <link rel="stylesheet" href="css/usuario.css">
+    <link rel="stylesheet" href="css/products.css">
     <script src="https://kit.fontawesome.com/7db1b9fcb6.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -35,7 +36,15 @@
       </div>
     </nav>
     <div class="text-center p-4">
-      <h2>Productos</h2>
+      <div class="background">
+      </div>
+        <div class="wave">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#00cba9" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,74.7C274.3,53,343,75,411,106.7C480,139,549,181,617,176C685.7,171,754,117,823,106.7C891.4,96,960,128,1029,117.3C1097.1,107,1166,53,1234,26.7C1302.9,0,1371,0,1406,0L1440,0L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path>
+        </svg>
+
+      </div>
+      <h2 class="h2">Productos</h2>
       <p class="lead">Aquí podemos encontrar todos los productos de nuestro sitio.</p>
     </div><br>
     <div class="container">
@@ -50,11 +59,10 @@
         <button type="button" class="simple" id="clear" name="button">Limpiar <i class="fas fa-trash"></i></button>
       </div>
     </div><br>
-    <div class="container">
-      <a class="a" href="product-info.html">
-      <div id="productos">
-
-      </div></a>
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row" id="productos"></div></a>
+      </div>
     </div>
     <footer class="text-muted bg-light">
       <div class="container">
