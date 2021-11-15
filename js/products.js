@@ -87,7 +87,7 @@ function carsHtml(product) { //Creamos el html que vamos agregar en la página
         <div class="">
           <h4 class="m-3"> ${product.name} </h4>
           <div>
-            <p class="text-muted" style="font-size: 18px;">${product.description}</p>
+            <p class="text-muted" style="font-size: 16px;">${product.description}</p>
             <small class="text-muted" style="font-size: 16px">  ${product.soldCount} ventas realizadas</small>
           </div>
         </div>
