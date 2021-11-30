@@ -1,10 +1,10 @@
-const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
+const CATEGORIES_URL = "http://localhost:3000/categories";
 const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
 const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
-const PRODUCTS_URL = "https://japdevdep.github.io/ecommerce-api/product/all.json";
+const PRODUCTS_URL = "http://localhost:3000/products";
 const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678.json";
-const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
-const CART_INFO_URL= "https://japdevdep.github.io/ecommerce-api/cart/654.json";
+const PRODUCT_INFO_COMMENTS_URL = "http://localhost:3000/comments";
+const CART_INFO_URL= "http://localhost:3000/cart";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
 var showSpinner = function(){
@@ -59,4 +59,12 @@ function recuperar(){ //
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", ()=>{
   recuperar();
+});
+
+
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.menu');
+
+navToggle.addEventListener("click", ()=>{
+  navMenu.classList.toggle("menu-visible");
 });

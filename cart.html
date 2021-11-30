@@ -40,26 +40,30 @@
   <link href="css/dropzone.css" rel="stylesheet">
   <link rel="stylesheet" href="css/usuario.css">
   <link rel="stylesheet" href="/css/carrito.css">
+  <link rel="stylesheet" href="/css/navRes.css">
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="inicio.html"><i class="fas fa-home epa"></i> Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html"><i class="fas fa-list-ul epa"></i> Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html"><i class="fas fa-box epa"></i> Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html"><i class="fas fa-store epa"></i> Vender</a>
-      <div class="dropdown d-none d-md-inline-block">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false" ></button>
-        <ul class="dropdown-menu" style="background: #eee;"aria-labelledby="dropdownMenuButton1">
-          <li><a class="desplegable dropdown-item" href="my-profile.html"><i class="fas fa-user"></i> Su perfil</a></li>
-          <li><a class="desplegable dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a></li>
-          <li><button class="cerrar " onclick="desconectar();"><i class="fas fa-sign-out-alt"></i>Cierre de sesión</button></li>
-        </ul>
+  <nav class="site-header sticky-top py-1 bg-dark ">
+    <div class="menu-container">
+      <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+      <div class="container d-flex flex-column flex-md-row justify-content-between menu ">
+        <a class="py-2 items d-md-inline-block" href="inicio.html"><i class="fas fa-home epa"></i> Inicio</a>
+        <a class="py-2 items d-md-inline-block" href="categories.html"><i class="fas fa-list-ul epa"></i> Categorías</a>
+        <a class="py-2 items d-md-inline-block" href="products.html"><i class="fas fa-box epa"></i> Productos</a>
+        <a class="py-2 items d-md-inline-block" href="sell.html"><i class="fas fa-store epa"></i> Vender</a>
+        <div class="dropdown items d-md-inline-block">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false" ></button>
+          <ul class="dropdown-menu" style="background: #eee;"aria-labelledby="dropdownMenuButton1">
+            <li><a class="desplegable dropdown-item" href="my-profile.html"><i class="fas fa-user"></i> Su perfil</a></li>
+            <li><a class="desplegable dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a></li>
+            <li><button class="cerrar " onclick="desconectar();"><i class="fas fa-sign-out-alt"></i>Cierre de sesión</button></li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
-  <form action="cart.html" method="">
+  <form action="http://localhost:3000/purchase" method="post">
   <div class="aside">
     <div class="cart-aside">
       <h4>Detalles de tu compra:</h4>
@@ -82,7 +86,8 @@
         </div>
         <br><hr class="hr2">
         <div class="direccion">
-          <label for="">Departamento: <select class="form-control w-50 mx-1 d-inline-block" required>
+          <label for="">Departamento:
+            <select class="form-control w-50 mx-1 d-inline-block"  required>
             <option value="" hidden>Elija uno. . .</option>
             <option value="">Artigas</option>
             <option value="">Canelones</option>
@@ -103,10 +108,10 @@
             <option value="">Soriano</option>
             <option value="">Tacuarembo</option>
             <option value="">Treinta y Tres</option>
-          </select></label><br>
-          <label for="">Ciudad: <input type="text" class="direccion" required></label>
-          <label for="">Calle: <input type="text" class="direccion" required></label>
-          <label for="">Número: <input type="text" class="direccion" required></label>
+          </select> </label> <br>
+          <label for="">Ciudad: <input type="text" class="direccion" name="ciudad" required></label>
+          <label for="">Calle: <input type="text" class="direccion"  name="direccion" required></label>
+          <label for="">Número: <input type="text" class="direccion" name="numero" required></label>
         </div>
         <div class="Modal">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">Formas de Pago</button><div class="d-inline-block" id="forma"></div>
@@ -119,14 +124,14 @@
                 </div>
                 <div class="modal-body" style="color: #000;">
                   <div class="custom-control custom-radio">
-                    <input id="tarjeta" name="publicationType" type="radio" class="custom-control-input d-block" onclick="enableTarjeta();" required>
+                    <input id="tarjeta" type="radio" class="custom-control-input d-block" onclick="enableTarjeta();" required>
                     <label class="custom-control-label " for="tarjeta">Tarjeta de credito</label><br>
                     <label for="">Número de tarjeta: <input id="numero" type="text" class="modal-input" required></label>
                     <label for="">Fecha de venicimieto: <input id="fecha" type="tel" class="modal-input" required></label>
                     <label for="">Código de seguridad: <input id="codigo" type="text" class="modal-input" required></label>
                   </div>
                   <div class="custom-control custom-radio">
-                    <input id="banco" name="publicationType" type="radio" class="custom-control-input" onclick="enableCuenta();" required>
+                    <input id="banco" type="radio" class="custom-control-input" onclick="enableCuenta();" required>
                     <label class="custom-control-label" for="banco">Transferencia bancaria</label><br>
                     <label for="">Número de cuenta: <input id="cuenta" type="text" class="modal-input" required></label>
                   </div>
@@ -140,7 +145,6 @@
           </div>
         </div>
       </div>
-
         <input type="submit" class="pagar" value="Finalizar compra">
       </form>
       <hr class="hr2">

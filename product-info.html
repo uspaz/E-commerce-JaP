@@ -16,23 +16,27 @@
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="css/usuario.css">
   <link rel="stylesheet" href="css/product-info.css">
+  <link rel="stylesheet" href="/css/navRes.css">
   <script src="https://kit.fontawesome.com/7db1b9fcb6.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="inicio.html"><i class="fas fa-home epa"></i> Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html"><i class="fas fa-list-ul epa"></i> Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html"><i class="fas fa-box epa"></i> Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html"><i class="fas fa-store epa"></i> Vender</a>
-      <div class="dropdown d-none d-md-inline-block">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false" ></button>
-        <ul class="dropdown-menu" style="background: #eee;"aria-labelledby="dropdownMenuButton1">
-          <li><a class="desplegable dropdown-item" href="my-profile.html"><i class="fas fa-user"></i> Su perfil</a></li>
-          <li><a class="desplegable dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a></li>
-          <li><button class="cerrar " onclick="desconectar();"><i class="fas fa-sign-out-alt"></i>Cierre de sesión</button></li>
-        </ul>
+  <nav class="site-header sticky-top py-1 bg-dark ">
+    <div class="menu-container">
+      <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+      <div class="container d-flex flex-column flex-md-row justify-content-between menu ">
+        <a class="py-2 items d-md-inline-block" href="inicio.html"><i class="fas fa-home epa"></i> Inicio</a>
+        <a class="py-2 items d-md-inline-block" href="categories.html"><i class="fas fa-list-ul epa"></i> Categorías</a>
+        <a class="py-2 items d-md-inline-block" href="products.html"><i class="fas fa-box epa"></i> Productos</a>
+        <a class="py-2 items d-md-inline-block" href="sell.html"><i class="fas fa-store epa"></i> Vender</a>
+        <div class="dropdown items d-md-inline-block">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false" ></button>
+          <ul class="dropdown-menu" style="background: #eee;"aria-labelledby="dropdownMenuButton1">
+            <li><a class="desplegable dropdown-item" href="my-profile.html"><i class="fas fa-user"></i> Su perfil</a></li>
+            <li><a class="desplegable dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a></li>
+            <li><button class="cerrar " onclick="desconectar();"><i class="fas fa-sign-out-alt"></i>Cierre de sesión</button></li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -61,31 +65,31 @@
       <div class="">
         <h4>Agrega tu comentario :</h4>
       </div><br>
-      <div class="">
-        <div class="puntuacion" data-toggle="buttons">
+      <form class="">
+        <div class="puntuacion">
           <label for="radio5" class="fas fa-grin-beam r e">
-            <input id="radio5"  type="radio" class="desaparecer" name="emojis" value="5">
+            <input id="radio5"  type="radio" class="desaparecer" name="emojis"  value="5">
           </label>
           <label for="radio4" class="fas fa-smile n e">
-            <input id="radio4" type="radio" class="desaparecer" name="emojis" value="4">
+            <input id="radio4" type="radio" class="desaparecer"  name="emojis"  value="4">
           </label>
           <label for="radio3" class="fas fa-meh a e">
-            <input id="radio3" type="radio" class="desaparecer" name="emojis" value="3">
+            <input id="radio3" type="radio" class="desaparecer" name="emojis"  value="3">
           </label>
           <label for="radio2" class="fas fa-frown s e">
-            <input id="radio2" type="radio" class="desaparecer" name="emojis" value="2">
+            <input id="radio2" type="radio" class="desaparecer"  name="emojis"  value="2">
           </label>
           <label for="radio1" class="fas fa-angry r e">
-            <input id="radio1" type="radio" class="desaparecer" name="emojis" value="1">
+            <input type="radio" id="radio1"  class="desaparecer"  name="emojis"  value="1">
           </label>
           <br>
           <div class="">
-            <textarea class="comment_textarea" id="textComment" name="name" rows="6" cols="50" placeholder="Escriba aquí su comentario..."></textarea>
+            <textarea class="comment_textarea" id="commentArea" name="name" rows="6" cols="50" placeholder="Escriba aquí su comentario..."></textarea>
           </div>
         </div>
-      </div>
+      </form>
       <div class="div_button">
-        <button class="comment_button" onclick="verificarComment();" type="button" name="button">Enviar</button>
+        <button class="comment_button" id="comentar" type="button" name="button">Enviar</button>
       </div>
     </form>
   </div>

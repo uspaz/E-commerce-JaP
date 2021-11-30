@@ -1,5 +1,6 @@
 let info = [];
 let comments = [];
+let usuario = JSON.parse(localStorage.getItem("user"));
 
 async function getInfoP() { //Tomo el JSON de la informacion del auto y lo guardo en una variable para luego utilizarla
     const info = await getJSONData(PRODUCT_INFO_URL);
@@ -121,7 +122,7 @@ function agregarComentarios(comentario) { //Codigo de como se van a mostrar los 
         <h6 class="mb-1">${comentario.description} </h6>
       </div><br>
       <div class="d-flex w-100 justify-content-between">
-        <small>Fecha: ${comentario.dateTime}</small>
+        <h6 style="font-size: 15px;">Fecha: ${comentario.dateTime}</h6>
       </div>
     </div>
   </div><br>`
@@ -144,25 +145,84 @@ function placeEmojis(n){//Agrega los emoji como metodo de calificación
   return estrellas;
 }
 
-function verificarComment () {//Coloca alertas si el nombre y apellido no estan separados por un guion bajo o si el campo no fue completado, también al realizarse el comentario
-  let comment  = document.getElementById("textComment").value;
+ //Coloca alertas si el campo no fue completado, también al realizarse el comentario
+document.getElementById("comentar").addEventListener("click", () => {
+
+  let htmlContentToAppend = "";
+  let comment = document.getElementById("commentArea").value;
+  let estrellas = document.getElementsByName("emojis");
+  let n = undefined;
+  let date = new Date();
+
+  let fecha =
+    date.getFullYear() +
+    "-" +
+    (date.getMonth() + 1) +
+    "-" +
+    date.getDate() +
+    " " +
+    date.getHours() +
+    ":" +
+    date.getMinutes() +
+    ":" +
+    date.getSeconds();
+
+  for (puntuacion of estrellas) {
+    if (puntuacion.checked == true) {
+      n = puntuacion.value;
+    }
+  }
   if (comment == "") {
-      Swal.fire({
-      position: 'center',
-      icon: 'warning',
-      title: 'Debe agregar un comentario',
-      showConfirmButton: true,
-      })
+    Swal.fire({
+      icon: "error",
+      title: "Problemas",
+      text: "No sé pueden enviar comentarios vacios",
+    });
   }else {
     Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Tu comentario se ha enviado con exito',
-    timer: 1000,
-    showConfirmButton: false,
-    });
+      icon: "warning",
+      title: "¿Are you sure?",
+      text: "Solo puedes enviar un comentario",
+      confirmButtonColor: "#006d77",
+      confirmButtonText: "Enviar comentario",
+      showCancelButton: true,
+      cancelButtonColor: "#ef233c",
+      cancelButtonText: "Cancelar",
+    }).then(enviado =>{
+      if (enviado.isConfirmed) {
+        Swal.fire(
+          "Incluido",
+          "Su comentario ha sido publicado con éxito",
+          "success"
+        );
 
-    document.getElementById("nameComment").value = "";
-    document.getElementById("textComment").value = "";
+      htmlContentToAppend +=
+        `<div class="list-group-item">
+          <div class="col-12">
+            <div class="d-flex w-100 justify-content-between">
+              <h4 class="mb-1"> ${usuario.dato}</h4>
+              <h6 class="float-right "> Calificación: `+ placeEmojis(n) +` </h6>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+              <h6 class="mb-1">${comment} </h6>
+            </div><br>
+            <div class="d-flex w-100 justify-content-between">
+              <h6 style="font-size: 15px;">Fecha: ${fecha}</h6>
+            </div>
+          </div>
+        </div>`;
+
+          document.getElementById('comentarios').innerHTML += htmlContentToAppend;
+          comments.push({
+            puntuacion: n,
+            description: comment,
+            user: usuario.username,
+            dateTime: fecha,
+          });
+          localStorage.setItem("comments", JSON.stringify(comments));
+
+      }
+      document.getElementById("commentArea").value = "";
+    });
   }
-}
+});

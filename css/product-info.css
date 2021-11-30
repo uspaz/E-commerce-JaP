@@ -1,36 +1,36 @@
 .comment_textarea{
   border: none;
-  border-bottom: 1.5px solid #000;
   resize: none;
-  background: #ddd;
+  background: rgba(200, 200, 200, 0.5);
   border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+  padding: 5px 0px 0px 10px;
 }
 .comment_textarea:focus{
   outline: none;
   background: linear-gradient(to bottom, #fff, #38a);
 }
 .comment_textarea::placeholder{
-  padding-left: 5px;
-  padding-top: 5px;
   color: #000;
 }
 .comment_button{
   border: none;
-  border-bottom: 2px solid #000;
   outline: none;
   width: 200px;
   height: 40px;
   margin-top: 10px;
   text-align: center;
-  background: #38a;
+  background: #48d;
   border-radius: 10px;
   color: #fff;
 }
+.comment_button:hover{
+transform: scale(1.1);
+transition-duration: 0.6s;
+}
 .comment_button:focus{
   outline: none;
-}
-.comment_button:hover{
-  border: 1px solid #000;
 }
 .e{
   padding: 2px;

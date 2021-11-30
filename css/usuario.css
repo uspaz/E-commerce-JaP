@@ -30,18 +30,17 @@
 }
 .desaparecer{
   display: none;
-  overflow: hidden;
 }
 .puntuacion label {
-float: right;
 color: #c1b8b8;
 font-size: 30px;
-overflow: hidden;
+float: right;
 }
+
 .puntuacion label:hover,
 .puntuacion label:hover ~ label,
 .puntuacion input:checked ~ label {
-  color: orange;
+  color: #f48c06;
 }
 
 .dropdown-menu{
@@ -49,7 +48,6 @@ overflow: hidden;
 }
 .desplegable{
   padding: 10px;
-
 }
 .desplegable:hover{
   background: #48d

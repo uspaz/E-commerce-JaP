@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <link rel="stylesheet" href="css/login.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
@@ -17,25 +17,33 @@
   <meta name="google-signin-client_id" content="978917900966-ka2gjq8goav6g8ss7s3sfohl68n6hs6p.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <title>eMercado - Todo lo que busques está aquí</title>
+  <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-  <div class="cuerpo">
-    <div class="fimg">
-       <img src="img/jovenes-a-programar.jpg" alt="...">
-    </div>
-    <form class="form">
-        <div class="form_div-h1">
-          <h2>Ingrese su cuenta</h2>
-          <div class="form__div-input">
-          <input class="div_input" type="text" placeholder="Usuario" id="user">
-          </div>
-          <div class="form__div-input ">
-            <input class="div_input" type="password" placeholder="Contraseña" id="key">
-          </div>
+  <form class="container_main">
+    <div class="container_sub">
+      <div class="container_login">
+        <div class="container_h1">
+          <h1>Ingrese su cuenta</h1>
+        </div>
+        <div class="container_login_img">
+          <img src="img/User.png" alt="">
+        </div>
+        <div class="container_input">
+          <input class="login_input" type="text" placeholder="Usuario" id="user" name="" value="">
+        </div>
+        <div class="container_input">
+          <input class="login_input" type="password" placeholder="Contraseña" id="key" name="" value="">
+        </div>
+        <div class="container_button">
+          <button class="login_button" type="button" onclick="verificar();" name="button">Ingresar</button>
         </div>
         <div class="g-signin2" data-onsuccess="onSignIn" data-width="140px" data-theme="dark" id="google"></div>
-        <button type="button" class="boton" onclick="verificar();" >Ingresar</button>
-    </form>
+      </div>
+    </div>
+  </form>
+  <div class="container_img">
+    <img src="img/fondo.jpg" alt="fondo de login">
   </div>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/init.js" charset="utf-8"></script>

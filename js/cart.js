@@ -1,4 +1,5 @@
 let carrito = [];
+let usuario = JSON.parse(localStorage.getItem("user"));
 
 async function Productos() { //Tomo el JSON de la informacion del articulo
     const carrito = await getJSONData(CART_INFO_URL);
@@ -14,12 +15,27 @@ document.addEventListener("DOMContentLoaded", async function(e){ //Utilizo la va
   document.getElementById('fecha').disabled = true;
   document.getElementById('codigo').disabled = true;
   document.getElementById('cuenta').disabled = true;
+
 });
+
+function eliminar(posicion){
+  carrito.articles.splice(posicion, 1);
+  showItems(carrito);
+
+  if (carrito.articles.length = 0) {
+    Swal.fire({
+      icon: "warning",
+      text: "No hay articulos en su carrito"
+    });
+  }
+}
 
 function showItems(tabla) {  //En esta función recorro los objetos dentro del JSON, los coloco en una tabla ya creada y le doy unos detalles, además de filtrar y pasar a dolares
   let articulos = "";
+  let i = 0;
 
-  tabla.articles.forEach( (elemento,i) => {
+  tabla.articles.forEach( (elemento) => {
+
 
     if (elemento.currency == "UYU") {
         elemento.currency = "USD";
@@ -29,11 +45,13 @@ function showItems(tabla) {  //En esta función recorro los objetos dentro del J
     articulos +=
     `<tr>
       <td colspan="2"><img src="${elemento.src}" class="productos"><label class="productName">${elemento.name}</label></td>
-      <td><input type="number" id="count${i}" value="1" min="0" onchange="subTotal();" class="cantidad"></td>
+      <td><input type="number" id="count${i}" value="${elemento.count}" min="0" onchange="subTotal();" class="cantidad"></td>
       <td class="text-center">${elemento.currency} <span class="monto">${elemento.unitCost}</span></td>
       <td class="text-center"><span id="subTotal${i}"></span></td>
-      <td><i class="fas fa-minus fa-2x icon" onclick="eliminar(${i});"></i></td>
-    </tr>`
+      <td><div onclick="eliminar(${i});"><i class="fas fa-minus fa-2x icon"></i></div></td>
+    </tr>
+    <input type="hidden" value="${usuario.dato}" name="nombre"></input>`
+    i++;
   });
   document.getElementById('cuerpo').innerHTML = articulos;
   subTotal();
@@ -47,7 +65,7 @@ function subTotal() { //Tomo los valores del precio y la cantidad, los parceo pa
   for (let i = 0; i < price.length; i++) {
 
     subtotal = parseFloat(price[i].innerHTML) * parseFloat(amount[i].value).toFixed(2)
-
+    console.log(subtotal);
     document.getElementById('subTotal'+ i).innerHTML = subtotal;
   }
   total();
@@ -79,7 +97,7 @@ function enableTarjeta() {
 
   document.getElementById('cuenta').disabled = true;
 
-  document.getElementById('forma').innerHTML = `<span class="ml-2">Tarjeta de credito</span>`
+  document.getElementById('forma').innerHTML = `<span  class="ml-2"> Tarjeta de credito </span>`
 }
 function enableCuenta() {
 
@@ -89,9 +107,5 @@ function enableCuenta() {
   document.getElementById('fecha').disabled = true;
   document.getElementById('codigo').disabled = true;
 
-  document.getElementById('forma').innerHTML = `<span class="ml-2">Transferencia bancaria</span>`
-}
-function eliminar(posicion){
-  carrito.splice(posicion, 1);
-  showItems(carrito);
+  document.getElementById('forma').innerHTML = `<span  class="ml-2"> Transferencia bancaria </span>`
 }
